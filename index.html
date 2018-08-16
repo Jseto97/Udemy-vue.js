@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <input type="text" v-on:input="changeTitle">
-      <p> {{ title }} </p>
-    </div>
-    <script>
-    new Vue({
-      el: '#app',
-      data: {
-        title: 'Hello World!'
-      },
-      methods: {
-        changeTitle: function(event) {
-          this.title = event.target.value;
-        }
-      }
-    });
-    </script>
-  </body>
-</html>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-// changelog added functionality for browser post ie8
+
+<div id="app">
+  <button v-on:click="increase(2, $event)">Click me</button>
+  <p>{{ counter }}</p>
+  <p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} </p>
+  <!-- even modifiers -->
+  <span v-on:mousemove="dummy"> Dead spot </span>
+  <!-- can be done using -->
+  <span v-on:mousemove.stop=""> Second Dead spot </span>
+  <!-- key modifiers alert evnet tied to enter -->
+  <input type="text" v-on:keyup.enter="alertMe">
+</div>
+
+<script src="script.js"></script>

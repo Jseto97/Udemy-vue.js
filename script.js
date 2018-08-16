@@ -1,19 +1,23 @@
 new Vue({
-  el: '#exercise',
+  el: '#app',
   data: {
-    name: 'Justin',
-    age: '21',
-    multiple: '21',
-    link: 'https://vignette.wikia.nocookie.net/blogclan-2/images/4/45/Random-turtle.gif/revision/latest?cb=20160706220110'
+    counter: 0,
+    x: 0,
+    y: 0
   },
   methods: {
-    multiply: function(){
-      this.multiple = 21*3;
-      return this.multiple;
+    increase: function(step, event) {
+      this.counter += step;
     },
-    randomized: function(){
-    var num = (Math.random());
-    return num;
+    updateCoordinates: function(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
+    },
+    dummy: function(event){
+      event.stopPropagation();
+    },
+    alertMe: function() {
+      alert('Alert!');
     }
   }
 });
